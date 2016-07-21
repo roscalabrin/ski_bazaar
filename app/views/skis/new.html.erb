@@ -1,0 +1,36 @@
+<h1>Add New Ski</h1>
+
+<%= form_for(@ski) do |f| %>
+<ul>
+
+  <li>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </li>
+
+  <li>
+    <%= f.label :brand %>
+    <%= f.text_field :brand %>
+  </li>
+
+  <li>
+    <%= f.label :gender %>
+    <%= f.text_field :gender %>
+  </li>
+  <li>
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </li>
+  <li>
+    <%= f.label :width %>
+    <%= f.text_field :width %>
+  </li>
+  <li>
+    <%= f.label :length %>
+    <%= f.text_field :length %>
+  </li>
+  </br>
+
+  <%= f.submit %>
+  </ul>
+<% end %>

@@ -1,0 +1,10 @@
+<h2>Ski Bazaar</h2>
+<h4>The marketplace for wintersports gear</h4>
+
+<% @skis.each do |ski| %>
+  <%= link_to "#{ski.brand}: #{ski.name}", ski_path(ski) %>
+</br>
+<% end %>
+</br>
+</br>
+<%= link_to "Add Ski", new_ski_path(@ski) %>

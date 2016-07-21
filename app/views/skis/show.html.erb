@@ -1,0 +1,9 @@
+<h3><%= @ski.name %></h3>
+<h4><%= @ski.brand %></h4>
+<p>$<%= @ski.price %></p>
+<p>Width: <%= @ski.width %></p>
+<p>Length: <%= @ski.length %></p>
+</br>
+<%= link_to "Edit", edit_ski_path(@ski) %>
+</br>
+<%= link_to "Delete", ski_path(@ski), method: :delete %>
