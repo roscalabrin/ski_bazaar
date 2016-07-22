@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
-  has_many :user_skis
-  has_many :skis, through: :user_skis
+  has_many :listings, class_name: "SkisUser"
+  has_many :skis, through: :listings, class_name: "SkisUser"
 
   def new
   end

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :skis, only: [:index, :show]
 
+  resources :listings
+
   resources :users, only: [:new, :create, :show]
   #nested path for each user to see only their listings
 
