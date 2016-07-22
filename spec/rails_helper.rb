@@ -5,7 +5,15 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
-# Add additional requires below this line. Rails is not loaded until this point!
+
+
+def login_user!
+  user = User.create(username: "Roberta", password: "password")
+  visit login_path
+  fill_in "Username", with: user.username
+  fill_in "Password", with: "password"
+  click_on "Login"
+end
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are

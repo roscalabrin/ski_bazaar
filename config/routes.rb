@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   root to: 'skis#index'
 
   resources :users, only: [:new, :create, :show]
+
   resources :skis
+  
+  scope :admin, module: :admin, as: :admin do
+    resources :skis
+  end
 
   get '/login', to:'sessions#new'
   post '/login', to:'sessions#create'
