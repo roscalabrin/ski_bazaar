@@ -7,9 +7,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:session_id] = @user.id
+      session[:user_id] = @user.id
       redirect_to @user
     else
+      # flash[:alert] = "Invalid login"
       #re-render new view if validations don't pass
     end
   end
