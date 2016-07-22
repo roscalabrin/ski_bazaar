@@ -7,7 +7,7 @@ RSpec.describe "User can be created", :type => :feature do
     fill_in "Username", with: "Roberta"
     fill_in "Password", with: "password"
     click_on "Create Account"
-save_and_open_page
+
     expect(page).to have_content "Welcome, Roberta"
   end
 end
