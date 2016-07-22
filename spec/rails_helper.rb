@@ -8,11 +8,35 @@ require 'rspec/rails'
 
 
 def login_user!
-  user = User.create(username: "Roberta", password: "password")
+  user = User.create(username: "Matt", password: "password1")
+  visit login_path
+  fill_in "Username", with: user.username
+  fill_in "Password", with: "password1"
+
+  click_on "Login"
+end
+
+def login_admin!
+  user = User.create(username: "Roberta", password: "password", admin: true)
   visit login_path
   fill_in "Username", with: user.username
   fill_in "Password", with: "password"
   click_on "Login"
+end
+
+RSpec.configure do |config|
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
+  end
+
 end
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

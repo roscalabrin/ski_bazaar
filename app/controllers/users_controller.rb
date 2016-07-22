@@ -8,10 +8,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to @user
+      redirect_to skis_path
     else
       # flash[:alert] = "Invalid login"
-      #re-render new view if validations don't pass
+      render :new
     end
   end
 

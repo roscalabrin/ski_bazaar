@@ -7,8 +7,8 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:session][:username])
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      redirect_to @user
-    else
+      redirect_to skis_path
+    # else
       # either user doesn't exists or password is incorrect
     end
   end
@@ -18,9 +18,4 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  private
-
-  def user_params
-    # params.require(:user).permit(:username, :password)
-  end
 end

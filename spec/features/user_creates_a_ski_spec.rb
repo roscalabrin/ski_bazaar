@@ -1,7 +1,9 @@
 require 'rails_helper'
 
-RSpec.feature "User submits a new ski" do
-  scenario "user sees the page for the individual ski" do
+RSpec.feature "Admin submits a new ski" do
+  scenario "Admin sees the page for the individual ski" do
+    login_admin!
+
     name = "Corvus"
     brand = "Black Crows"
     width = 109
@@ -9,16 +11,17 @@ RSpec.feature "User submits a new ski" do
     category_id = 1
     gender_id = 1
 
-    visit skis_path
-    click_on "New Ski"
-    fill_in "ski_name", with: name
-    fill_in "ski_brand", with: brand
-    fill_in "ski_width", with: width
-    fill_in "ski_length", with: length
-    fill_in "ski_category_id", with: category_id
-    fill_in "ski_gender_id", with: gender_id
+    visit admin_skis_path
+    click_on "Add Ski"
 
-    click_on "Create Ski"
+    fill_in "admin_name", with: name
+    fill_in "admin_brand", with: brand
+    fill_in "admin_width", with: width
+    fill_in "admin_length", with: length
+    fill_in "admin_category_id", with: category_id
+    fill_in "admin_gender_id", with: gender_id
+
+    click_on "Save Admin"
 
     expect(page).to have_content name
     expect(page).to have_content brand
