@@ -8,7 +8,7 @@ RSpec.feature "User submits a new ski" do
     length = 175
     category_id = 1
     gender_id = 1
-    # image = "http://tny.im/5b2"
+    image = "http://tny.im/5b2"
 
     visit skis_path
     click_on "New Ski"
@@ -18,11 +18,12 @@ RSpec.feature "User submits a new ski" do
     fill_in "ski_length", with: length
     fill_in "ski_category_id", with: category_id
     fill_in "ski_gender_id", with: gender_id
-    # fill_in "image", with: image
+    fill_in "Image", with: image
+
     click_on "Create Ski"
 
     expect(page).to have_content name
     expect(page).to have_content brand
-    # expect(page).to have_css("img[src=\"#{image_path}\"]")
+    # expect(page).to have_css("img[src=\"#{image}\"]")
   end
 end

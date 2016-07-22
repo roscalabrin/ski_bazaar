@@ -33,7 +33,6 @@ class SkisController < ApplicationController
   end
 
   def destroy
-    # byebug
     @ski.destroy
     flash.notice = "Ski #{@ski.name} Deleted!"
 
