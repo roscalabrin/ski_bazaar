@@ -1,4 +1,9 @@
 class SessionsController < ApplicationController
+  before_action :logged_in?, only: [:new]
+
+  def logged_in?
+    redirect_to skis_path if current_user
+  end
 
   def new
   end

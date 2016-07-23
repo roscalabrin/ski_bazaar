@@ -6,6 +6,6 @@ RSpec.describe "User can logout from their account", :type => :feature do
 
     click_on "Logout"
 
-    expect(page).to_not have_content "Welcome, Roberta"
+    expect(page).to_not have_content "Roberta"
   end
 end

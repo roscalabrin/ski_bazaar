@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  # root to: 'sessions#new'
   root to: 'sessions#new'
 
   resources :skis, only: [:index, :show]
@@ -21,9 +20,12 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/login', to:'sessions#new'
-  post '/login', to:'sessions#create'
-  delete '/logout', to:'sessions#destroy'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get 'logout', to: 'sessions#destroy'
+  delete 'logout', to: 'sessions#destroy'
+
+  get '*path' => redirect('/')
 
 end
   # The priority is based upon order of creation: first created -> highest priority.

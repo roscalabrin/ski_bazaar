@@ -1,4 +1,6 @@
 class SkisController < ApplicationController
+  before_filter :require_user
+  # before_action :require_user
   # before_action :set_ski, only: [:show, :edit, :update, :destroy]
   # before_filter :authorize_admin, except [:index, :show]
 
