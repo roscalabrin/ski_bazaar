@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   end
 
   namespace :seller do
-    resources :listings
+    resources :skis do
+      resources :listings
+    end
   end
 
   get '/login', to:'sessions#new'

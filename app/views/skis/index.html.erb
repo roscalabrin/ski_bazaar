@@ -4,8 +4,9 @@
 
 <ul>
 <% @skis.each do |ski| %>
+  selected_ski(ski.id)
   <%= link_to "#{ski.brand}: #{ski.name}", ski_path(ski) %> |
-  <%= link_to "Add Listing", new_seller_listing_path(ski) %>
+  <%= link_to "Add Listing", new_seller_ski_listing_path(ski) %>
 </br>
 </br>
 <% end %>

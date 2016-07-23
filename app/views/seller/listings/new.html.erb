@@ -1,12 +1,10 @@
-<h1>Add A Listing To This Ski</h1>
+<h1>Add A Listing To <%= @ski.name %></h1>
 
-<!-- #add yield view for show the particular ski  -->
-
-<%= form_for(:seller, url: seller_listings_path(@listing)) do |f| %>
+<%= form_for(:seller, url: seller_ski_listings_path(@ski, @listing)) do |f| %>
   <%= f.label :price %>
   <%= f.text_field :price %></br>
   <%= f.label :image %>
   <%= f.text_field :image %>
 
-  <%= f.submit "Create Listing"%>
+  <%= f.submit "Create Listing" %>
 <% end %>
