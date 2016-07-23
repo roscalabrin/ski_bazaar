@@ -12,7 +12,26 @@ body {
 /*** HOMEPAGE ***/
 
 .login-page {
-  background-image: url("/img/ski-homepage.jpg");
+  background-image: url("/img/homepage2.jpg");
   background-repeat: no-repeat;
   background-position: top;
+}
+
+#home-title {
+  color: #fff;
+}
+
+
+/*** NAVBAR ***/
+
+#navbar-login {
+  margin-top: 10px;
+}
+
+
+/*** SKI INDEX ***/
+
+#ski-list {
+  margin-top: 20px;
+  padding-left: 10px;
 }

@@ -14,13 +14,10 @@
     <%= f.text_field :length %>
 
     <%= f.label :category_id %>
-    <%= f.text_field :category_id %>
+    <%= collection_select( :ski, :category_id, Category.all, :id, :name, {:prompt => 'Select category'}, {:multiple => false } ) %>
 
     <%= f.label :gender_id %>
-    <%= f.text_field :gender_id %>
+    <%= collection_select( :ski, :gender_id, Gender.all, :id, :name, {:prompt => 'Select gender'}, {:multiple => false } ) %>
 
   <%= f.submit %>
 <% end %>
-
-
-<!-- f.select(:gender, options_for_select(["Female", "Male"]))  -->

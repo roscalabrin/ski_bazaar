@@ -10,21 +10,18 @@ require 'rspec/rails'
 def login_user!
   user = User.create(username: "Matt", password: "password1")
   visit login_path
+
   fill_in "Username", with: user.username
   fill_in "Password", with: "password1"
-
   click_on "Login"
 end
 
 def login_admin!
   user = User.create(username: "Roberta", password: "password", admin: true)
-  visit login_path
 
-  # fill_in "sessions[username]", with: user.username
-  # fill_in "sessions[password]", with: "password"
-  
-  fill_in "Username", with: user.username
-  fill_in "Password", with: "password"
+  visit login_path
+  fill_in "session[username]", with: user.username
+  fill_in "session[password]", with: "password"
   click_on "Login"
 end
 
