@@ -1,5 +1,5 @@
 class SkisController < ApplicationController
-  before_action :set_ski, only: [:show, :edit, :update, :destroy]
+  # before_action :set_ski, only: [:show, :edit, :update, :destroy]
   # before_filter :authorize_admin, except [:index, :show]
 
   def index

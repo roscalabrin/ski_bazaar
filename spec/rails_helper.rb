@@ -19,9 +19,25 @@ end
 def login_admin!
   user = User.create(username: "Roberta", password: "password", admin: true)
   visit login_path
+
+  # fill_in "sessions[username]", with: user.username
+  # fill_in "sessions[password]", with: "password"
+  
   fill_in "Username", with: user.username
   fill_in "Password", with: "password"
   click_on "Login"
+end
+
+def add_ski
+  login_admin!
+  ski = Ski.create!(
+    name: "Corvus",
+    brand: "Black Crows",
+    width: 109,
+    length: 175,
+    category_id: 1,
+    gender_id: 1
+  )
 end
 
 RSpec.configure do |config|

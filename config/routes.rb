@@ -1,16 +1,22 @@
 Rails.application.routes.draw do
 
+  # root to: 'sessions#new'
   root to: 'sessions#new'
 
   resources :skis, only: [:index, :show]
 
-  resources :listings
+  resources :listings, only: [:index, :show]
 
   resources :users, only: [:new, :create, :show]
-  #nested path for each user to see only their listings
 
   scope :admin, module: :admin, as: :admin do
     resources :skis
+    # resources :categories
+    # resources :gender
+  end
+
+  namespace :seller do
+    resources :listings
   end
 
   get '/login', to:'sessions#new'

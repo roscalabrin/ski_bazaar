@@ -1,4 +1,4 @@
-class SkisUser  < ActiveRecord::Base
+class Listing  < ActiveRecord::Base
   belongs_to :user
   belongs_to :ski
 end

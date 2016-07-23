@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160722135731) do
+ActiveRecord::Schema.define(version: 20160722165012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 20160722135731) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "listings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "ski_id"
+    t.decimal  "price"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "skis", force: :cascade do |t|
     t.string   "name"
     t.string   "brand"
@@ -38,18 +47,6 @@ ActiveRecord::Schema.define(version: 20160722135731) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
-
-  create_table "skis_users", id: false, force: :cascade do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "ski_id",     null: false
-    t.decimal  "price"
-    t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "skis_users", ["ski_id", "user_id"], name: "index_skis_users_on_ski_id_and_user_id", using: :btree
-  add_index "skis_users", ["user_id", "ski_id"], name: "index_skis_users_on_user_id_and_ski_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username"

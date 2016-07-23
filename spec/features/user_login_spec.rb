@@ -5,6 +5,7 @@ RSpec.describe "User can login to their account", :type => :feature do
     login_user!
 
     expect(page).to have_content "Welcome, Matt"
+    expect(current_path).to eq skis_path
   end
 end
 # if its admin sees index with all skis and edit and delete buttons

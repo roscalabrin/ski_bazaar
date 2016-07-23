@@ -1,4 +1,4 @@
-class Admin::SkisController < ApplicationController
+class Admin::SkisController < Admin::BaseController
   before_action :set_ski, only: [:show, :edit, :update, :destroy]
 
   def index

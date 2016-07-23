@@ -1,0 +1,18 @@
+
+html {
+  font-family: 'Poppins', sans-serif;
+  /*font-family: 'Lato', sans-serif;*/
+}
+
+body {
+  color: #212121;
+}
+
+
+/*** HOMEPAGE ***/
+
+.login-page {
+  background-image: url("/img/ski-homepage.jpg");
+  background-repeat: no-repeat;
+  background-position: top;
+}
