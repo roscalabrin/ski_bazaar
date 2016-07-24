@@ -13,6 +13,7 @@ RSpec.feature "Admin submits a new ski" do
     gender_id = 1
 
     visit admin_skis_path
+
     click_on "Add Ski"
 
     fill_in "admin_name", with: name
@@ -27,6 +28,8 @@ RSpec.feature "Admin submits a new ski" do
 
     expect(page).to have_content name
     expect(page).to have_content brand
+    expect(page).to have_content width
+    expect(page).to have_content length
     # expect(page).to have_css("img[src=\"#{image}\"]")
   end
 end

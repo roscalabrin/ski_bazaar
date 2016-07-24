@@ -7,6 +7,9 @@ class Admin::SkisController < Admin::BaseController
   end
 
   def show
+    @ski_category = Category.find(@ski.category_id).name
+    @ski_gender  = Gender.find(@ski.gender_id).name
+    redirect_to @ski
   end
 
   def new
@@ -35,9 +38,8 @@ class Admin::SkisController < Admin::BaseController
 
   def destroy
     @ski.destroy
-    # flash.notice = "#{@ski.name} | #{@ski.name} was deleted!"
-        byebug
-    redirect_to skis_path
+    flash.notice = "#{@ski.name} | #{@ski.name} was deleted!"
+    redirect_to admin_skis_path
   end
 
   private

@@ -1,8 +1,5 @@
 class SkisController < ApplicationController
   before_filter :require_user
-  # before_action :require_user
-  # before_action :set_ski, only: [:show, :edit, :update, :destroy]
-  # before_filter :authorize_admin, except [:index, :show]
 
   def index
     @skis = Ski.all
@@ -10,46 +7,7 @@ class SkisController < ApplicationController
 
   def show
     @ski = Ski.find(params[:id])
+    @ski_category = Category.find(@ski.category_id).name
+    @ski_gender  = Gender.find(@ski.gender_id).name
   end
-
-  # def new
-  #   @ski = Ski.new
-  # end
-  #
-  # def create
-  #   @ski = Ski.create(ski_params)
-  #   if @ski.save
-  #     redirect_to @ski
-  #   else
-  #     render :new
-  #   end
-  # end
-
-  # def edit
-  # end
-  #
-  # def update
-  #   if @ski.update(ski_params)
-  #     redirect_to @ski
-  #   else
-  #     render :edit
-  #   end
-  # end
-  #
-  # def destroy
-  #   @ski.destroy
-  #   flash.notice = "Ski #{@ski.name} Deleted!"
-  #
-  #   redirect_to skis_path
-  # end
-  #
-  # private
-  #
-  # def ski_params
-  #   params.require(:ski).permit(:name, :brand, :gender, :price, :width, :length)
-  # end
-  #
-  # def set_ski
-  #   @ski = Ski.find(params[:id])
-  # end
 end

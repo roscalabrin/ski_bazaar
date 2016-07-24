@@ -1,3 +1,12 @@
+<div>
+<ol class="breadcrumb">
+  <li><%= link_to_unless_current("All Skis", { controller: "skis", action: "index" }) %></li>
+  <li><%= link_to_unless_current("All Listings", { controller: "listings", action: "index" }) %></li>
+  <% if admin? == false %>
+    <li>My Listings</li>
+  <% end %>
+</ol>
+</div>
 
 <nav class="navbar navbar-default navbar-fixed-top">
   <div id="navbar-login"class="container col-sm-offset-9 col-sm-3">

@@ -1,25 +1,20 @@
-<div>
-<ol class="breadcrumb">
-  <li class="active">All Skis</li>
-  <li><%= link_to "All Listings", listings_path %></li>
-  <% if admin? == false %>
-    <li>My Listings</li>
-  <% end %>
-</ol>
-</div>
-
 <%= render partial: "shared/nav" %>
 
-<div class="col-sm-10 container">
+<div class="col-sm-offset-1 col-sm-10">
 <h3><%= @ski.name %></h3>
 <h4><%= @ski.brand %></h4>
 <hr>
-<ul>
-  <li><%= @ski.category_id %></li>
-  <li><%= @ski.gender_id %></li>
-  <br>
-  <li>Width:<%= @ski.width %></li>
-  <li>Length:<%= @ski.width %></li>
-  <li><%= link_to @ski.image %></li>
-</ul>
+
+<div class="row">
+  <div class="container col-sm-offset-.5 col-sm-2 ">
+    <img class="media-object" src="<%= @ski.image %>" alt="...">
+  </div>
+  <div class="col-sm-6 container">
+    <ul class="ski-specs">
+      <li><strong><%= @ski_category %></strong> |
+      <strong><%= @ski_gender %></strong></li>
+      <li><strong>Width</strong>: <%= @ski.width %></li>
+      <li><strong>Length</strong>: <%= @ski.length %></li>
+    </ul>
+  </div>
 </div>
