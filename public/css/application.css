@@ -24,10 +24,18 @@ body {
 
 /*** NAVBAR ***/
 
-#navbar-login {
+#navbar-login, #navbar-login a {
   margin-top: 10px;
+  color: #fff;
 }
 
+.navbar {
+  background-color: #0ac5f4;
+}
+
+.breadcrumb {
+  margin-top: 50px;
+}
 
 /*** SKI INDEX ***/
 

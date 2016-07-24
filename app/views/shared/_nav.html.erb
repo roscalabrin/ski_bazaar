@@ -1,7 +1,9 @@
 
 <nav class="navbar navbar-default navbar-fixed-top">
   <div id="navbar-login"class="container col-sm-offset-9 col-sm-3">
-    <% if current_user %>
+    <% if admin? %>
+      Signed in as Admin | <%= link_to "Logout", logout_path %>
+    <% elsif current_user %>
       Signed in as <%= current_user.username %> | <%= link_to "Logout", logout_path %>
     <% else %>
       <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
