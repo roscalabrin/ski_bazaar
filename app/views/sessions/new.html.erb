@@ -1,11 +1,15 @@
 <body class='login-page'>
 
-<div class="row container">
-  <h2 id="home-title">Welcome Ski Bazaar</h2>
+<div class="row container col-sm-offset-4 col-sm-8">
+  <h1 id="home-title">Welcome To Ski Bazaar</h1>
 </div>
 
-<%= render partial: "shared/credentials_form" %>
+<div class="col-md-12 ">
+  <%= render partial: "shared/credentials_form" %>
+</div>
 
-<%= link_to "Create An Account", new_user_path %>
+<div class="col-md-2 center-block block-btn-create-account">
+  <%= link_to "Create An Account", new_user_path,  class: "btn-create-account" %>
+</div>
 
 </body>
