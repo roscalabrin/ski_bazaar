@@ -25,6 +25,15 @@ def login_admin!
   click_on "Login"
 end
 
+def load_categories_and_gender
+  Gender.create!(name: "female")
+  Gender.create!(name: "male")
+  Category.create!(name: "all mountain")
+  Category.create!(name: "powder")
+  Category.create!(name: "carving")
+  Category.create!(name: "backcountry")
+end
+
 def add_ski
   login_admin!
   ski = Ski.create!(

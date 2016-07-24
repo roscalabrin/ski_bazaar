@@ -42,7 +42,7 @@ class Admin::SkisController < Admin::BaseController
   private
 
   def ski_params
-    params.require(:admin).permit(:name, :brand, :width, :length, :category_id, :gender_id)
+    params.require(:admin).permit(:name, :brand, :width, :length).merge(params.require(:ski).permit(:category_id, :gender_id))
   end
 
   def set_ski

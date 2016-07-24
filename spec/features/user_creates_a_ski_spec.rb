@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Admin submits a new ski" do
   scenario "Admin sees the page for the individual ski" do
+    load_categories_and_gender
     login_admin!
 
     name = "Corvus"
@@ -18,8 +19,9 @@ RSpec.feature "Admin submits a new ski" do
     fill_in "admin_brand", with: brand
     fill_in "admin_width", with: width
     fill_in "admin_length", with: length
-    fill_in "admin_category_id", with: category_id
-    fill_in "admin_gender_id", with: gender_id
+
+    select('backcountry', :from => 'ski_category_id')
+    select('female', :from => 'ski_gender_id')
 
     click_on "Save Admin"
 
