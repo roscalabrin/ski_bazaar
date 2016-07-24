@@ -8,8 +8,15 @@
 
 Ski.destroy_all
 
-Ski.create(name: "PB&J", brand: "Atomic", gender: "Male", cetegory: "all mountain", width: 98, length: 149, image: )
-Ski.create(name: "Corvus", brand: "Black Crows", gender: "Female", cetegory: "touringn", width: 109, length: 175, image: https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=imgres&cd=&cad=rja&uact=8&ved=0ahUKEwj1iMDjv4XOAhWs5YMKHTLuB4kQjRwIBw&url=http%3A%2F%2Fwww.backcountry.com%2Fblack-crows-corvus-skis&psig=AFQjCNEkk4LXrTSYAtcfItFQZcycchqwSQ&ust=1469222852721763)
+# Ski.create(name: "PB&J", brand: "Atomic", gender: "Male", cetegory: "all mountain", width: 98, length: 175, image: )
+
+Ski.create(name: "corvus freebird", brand: "black crows", gender_id: 1, category_id: 2, width: 109, length: 175, image: "https://commercecdn.com/1044735434531274893/46c38786-c2ca-4b24-9008-6fe54153df0a.jpeg")
+
+Ski.create(name: "corvus freebird", brand: "black crows", gender_id: 1, category_id: 2, width: 109, length: 175, image: "https://commercecdn.com/1044735434531274893/46c38786-c2ca-4b24-9008-6fe54153df0a.jpeg")
+
+Ski.create(name: "corvus freebird", brand: "black crows", gender_id: 1, category_id: 2, width: 109, length: 175, image: "https://commercecdn.com/1044735434531274893/46c38786-c2ca-4b24-9008-6fe54153df0a.jpeg")
+
+Ski.create(name: "corvus freebird", brand: "black crows", gender_id: 1, category_id: 2, width: 109, length: 175, image: "https://commercecdn.com/1044735434531274893/46c38786-c2ca-4b24-9008-6fe54153df0a.jpeg")
 
 
 # category
