@@ -19,6 +19,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :seller do
+    resources :listings, only: [:index, :show]
+  end
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'

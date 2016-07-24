@@ -8,6 +8,6 @@ RSpec.describe "User can be created", :type => :feature do
     fill_in "Password", with: "password"
     click_on "Create Account"
 
-    expect(page).to have_content "Welcome, Roberta"
+    expect(page).to have_content "Signed in as Roberta | Logout"
   end
 end

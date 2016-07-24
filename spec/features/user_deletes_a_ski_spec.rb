@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.feature "Admin deletes an existing ski", :type => :feature do
   scenario "Admin sees the page with all skis without the deleted ski" do
     add_ski
+    login_admin!
     name = Ski.last.name
     brand = Ski.last.brand
 

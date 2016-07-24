@@ -1,9 +1,9 @@
 <div>
 <ol class="breadcrumb">
-  <li><%= link_to_unless_current("All Skis", { controller: "skis", action: "index" }) %></li>
-  <li><%= link_to_unless_current("All Listings", { controller: "listings", action: "index" }) %></li>
+  <li><%= link_to "All Skis", skis_path %></li>
+  <li><%= link_to "All Listings", listings_path %></li>
   <% if admin? == false %>
-    <li>My Listings</li>
+    <li><%= link_to "My Listings", seller_listings_path %></li>
   <% end %>
 </ol>
 </div>

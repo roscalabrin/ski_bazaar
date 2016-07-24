@@ -13,11 +13,15 @@ class ApplicationController < ActionController::Base
     current_user && current_user.admin?
   end
 
-  # def valid_user?
-  #   current_user && current_user.admin? == false
-  # end
-
   def require_user
     render file: '/public/404' unless current_user
+  end
+
+  def find_ski_brand
+    Ski.find(@listing.ski_id).brand
+  end
+
+  def find_ski_name
+    Ski.find(@listing.ski_id).name
   end
 end

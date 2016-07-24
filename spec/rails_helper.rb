@@ -11,8 +11,8 @@ def login_user!
   user = User.create(username: "Matt", password: "password1")
   visit login_path
 
-  fill_in "Username", with: user.username
-  fill_in "Password", with: "password1"
+  fill_in "session[username]", with: user.username
+  fill_in "session[password]", with: "password1"
   click_on "Login"
 end
 
@@ -35,10 +35,9 @@ def load_categories_and_gender
 end
 
 def add_ski
-  login_admin!
   ski = Ski.create!(
-    name: "Corvus",
-    brand: "Black Crows",
+    name: "corvus",
+    brand: "black crows",
     width: 109,
     length: 175,
     category_id: 1,

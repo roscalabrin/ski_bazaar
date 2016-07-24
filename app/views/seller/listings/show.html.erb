@@ -1,0 +1,28 @@
+<%= render partial: "shared/nav" %>
+
+<div class="col-sm-offset-1 col-sm-10">
+<h3><%= Ski.find(@listing.ski_id).brand %></h3>
+<h4><%= Ski.find(@listing.ski_id).name %></h4>
+<hr>
+
+
+
+<div class="row">
+
+  <div class="container col-sm-offset-.5 col-sm-2 ">
+    <img class="media-object" src="<%= @listing.image %>" alt="...">
+    </br>
+    </br>
+    <%= link_to "Edit", edit_seller_ski_listing_path(@listing.ski_id, @listing) %> |
+      <%= link_to "Delete", seller_ski_listing_path(@listing.ski_id, @listing), method: :delete %>
+  </div>
+  <div class="col-sm-6 container">
+    <ul class="ski-specs">
+      <li><strong>Price</strong>: <%= @listing.price %></li>
+      <li><strong>Seller</strong>: <%= User.find(@listing.user_id).username %></li>
+    </ul>
+  </div>
+
+
+
+</div>

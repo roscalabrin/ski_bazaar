@@ -1,7 +1,7 @@
 class Seller::ListingsController < Seller::BaseController
 
   def index
-    @listing = Listing.all
+    @listing = current_user.listings
   end
 
   def new
@@ -11,15 +11,21 @@ class Seller::ListingsController < Seller::BaseController
 
   def create
     @listing = current_user.listings.create(listing_params)
-    # byebug
     if @listing.save
-      redirect_to seller_ski_listings_path
+      redirect_to listings_path
     else
       render :new
     end
   end
 
   def show
+    @listing = Listing.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
   end
 
   private
