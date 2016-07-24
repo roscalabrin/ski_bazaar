@@ -8,14 +8,13 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show]
 
-  scope :admin, module: :admin, as: :admin do
+  namespace :admin do
     resources :skis
-    # resources :categories
-    # resources :gender
+    # categories and gender?
   end
 
   namespace :seller do
-    resources :skis do
+    resources :skis, only: [:index] do
       resources :listings
     end
   end

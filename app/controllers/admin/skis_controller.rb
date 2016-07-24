@@ -3,6 +3,7 @@ class Admin::SkisController < Admin::BaseController
 
   def index
     @skis = Ski.all
+    redirect_to skis_path
   end
 
   def show
@@ -34,8 +35,8 @@ class Admin::SkisController < Admin::BaseController
 
   def destroy
     @ski.destroy
-    flash.notice = "Ski #{@ski.name} Deleted!"
-
+    # flash.notice = "#{@ski.name} | #{@ski.name} was deleted!"
+        byebug
     redirect_to skis_path
   end
 

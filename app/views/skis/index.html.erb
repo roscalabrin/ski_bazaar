@@ -12,9 +12,15 @@
 
   <ul id="ski-list">
   <% @skis.each do |ski| %>
-    <%= link_to "#{ski.brand}: #{ski.name}", ski_path(ski) %> |
-    <%= link_to "Add Listing", new_seller_ski_listing_path(ski) %>
-  </br>
+    <li><%= link_to "#{ski.brand}: #{ski.name}", ski_path(ski) %>
+
+    <% if admin? %>
+      </br>
+      <%= link_to "Edit", edit_admin_ski_path(ski) %> |
+      <%= link_to "Delete", admin_ski_path(ski), method: :delete %>
+    <% else %>
+      | <%= link_to "Add Listing", new_seller_ski_listing_path(ski) %>
+    <% end %></li>
   </br>
   <% end %>
   </ul>
