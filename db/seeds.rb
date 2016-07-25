@@ -1,3 +1,9 @@
+User.destroy_all
+
+User.create(username: "Roberta", password: "password", admin: false)
+User.create(username: "RobertaAdmin", password: "password", admin: true)
+User.create(username: "Mozzie", password: "lindo", admin: false)
+
 Ski.destroy_all
 
 Ski.create(name: "corvus freebird", brand: "black crows", gender_id: 1, category_id: 3, width: 109, length: 175, image: "https://commercecdn.com/1044735434531274893/46c38786-c2ca-4b24-9008-6fe54153df0a.jpeg")
