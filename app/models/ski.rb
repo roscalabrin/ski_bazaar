@@ -4,7 +4,7 @@ class Ski < ActiveRecord::Base
   has_many :listings
   has_many :users, through: :listings
 
-  validates :name, :brand, :width, :length, :gender_id, :category_id, presence: true
+  validates :name, :brand, :width, :length, :gender_id, :category_id, :image, presence: true
 
   validates :name, uniqueness: { scope: [:brand, :width, :length, :gender_id, :category_id] }
 end

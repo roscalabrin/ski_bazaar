@@ -10,10 +10,7 @@ RSpec.feature "Admin deletes an existing ski", :type => :feature do
     visit admin_skis_path
 
     within("#ski-list") do
-      page.find('li:first').click_on "Delete"
+      expect { page.find('li:first').click_on "Delete" }.to change(Ski, :count).by(-1)
     end
-
-    # expect{Ski.increment}.to change{Counter.count}.by(2)
-    expect(page).to_not have_content name && brand
   end
 end

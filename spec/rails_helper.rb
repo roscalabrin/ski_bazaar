@@ -40,7 +40,8 @@ def add_ski
     width: 109,
     length: 175,
     category_id: 1,
-    gender_id: 1
+    gender_id: 1,
+    image: "https://commercecdn.com/1044735434531274893/46c38786-c2ca-4b24-9008-6fe54153df0a.jpeg"
   )
 end
 

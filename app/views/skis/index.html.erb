@@ -16,9 +16,10 @@
     <% if admin? %>
       </br>
       <%= link_to "Edit", edit_admin_ski_path(ski) %> |
-      <%= link_to "Delete", admin_ski_path(ski), method: :delete %>
+      <%= button_to "Delete", admin_ski_path(ski), :method=>:delete %>
     <% else %>
       | <%= link_to "Add Listing", new_seller_ski_listing_path(ski) %>
+
     <% end %></li>
   </br>
   <% end %>
