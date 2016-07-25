@@ -6,7 +6,6 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 
-
 def login_user!
   user = User.create(username: "Matt", password: "password1")
   visit login_path
@@ -58,6 +57,12 @@ RSpec.configure do |config|
     end
   end
 
+  Shoulda::Matchers.configure do |config|
+    config.integrate do |with|
+      with.test_framework :rspec
+      with.library :rails
+    end
+  end
 end
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

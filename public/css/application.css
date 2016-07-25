@@ -104,3 +104,9 @@ div.form-horizontal {
 .ski-specs {
   list-style: none;
 }
+
+/*** LISTING NEW ***/
+
+.flash-alert {
+  color: #ff0000;
+}

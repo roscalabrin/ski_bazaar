@@ -17,6 +17,10 @@ class ApplicationController < ActionController::Base
     render file: '/public/404' unless current_user
   end
 
+  def find_ski_id
+    @ski = Ski.find(params[:ski_id])
+  end
+
   def find_ski_brand
     Ski.find(@listing.ski_id).brand
   end
