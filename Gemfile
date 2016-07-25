@@ -27,6 +27,13 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Unicorn as the app server
 gem 'unicorn'
 
+# gem 'omniauth-oauth2'
+gem 'figaro'
+gem 'tweetstream'
+gem 'omniauth-twitter'
+gem 'xml-simple'
+
+
 gem 'rails_12factor', group: :production
 
 # Use Capistrano for deployment

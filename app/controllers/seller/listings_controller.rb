@@ -32,6 +32,17 @@ class Seller::ListingsController < Seller::BaseController
   def update
   end
 
+  def destroy
+    @listing = Listing.find(params[:id])
+    @listing.destroy
+    flash.notice = "Listing deleted!"
+    redirect_to seller_listings_path
+  end
+
+  # def set_listing
+  #   @listing = Listing.find(params[:id])
+  # end
+
   private
 
   def listing_params

@@ -16,7 +16,8 @@
     </br>
     </br>
     <%= link_to "Edit", edit_seller_ski_listing_path(@listing.ski_id, @listing) %> |
-      <%= link_to "Delete", seller_ski_listing_path(@listing.ski_id, @listing), method: :delete %>
+      <%= button_to "Delete", seller_ski_listing_path(@listing.ski_id, @listing), :method=>:delete %>
+
   </div>
   <div class="col-sm-6 container">
     <ul class="ski-specs">

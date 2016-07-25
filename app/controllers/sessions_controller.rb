@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(username: params[:session][:username])
+  # @user = User.find_or_create_from_auto_hash(auth_hash)  
+    @user = User.find_or_create_by(username: params[:session][:username])
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       flash[:notice] = "Logged In Successfully!"
@@ -24,6 +25,12 @@ class SessionsController < ApplicationController
     session.clear
     flash[:notice] = "Successfully logged out"
     redirect_to root_path
+  end
+
+  protected
+
+  def auth_hash
+    request.env['omniauth.auth']
   end
 
 end
