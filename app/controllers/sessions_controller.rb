@@ -14,9 +14,8 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       flash[:notice] = "Logged In Successfully!"
       redirect_to skis_path
-      # redirect_to user_path(user)
     else
-      flash.now[:error] = "Invalid login try again"
+      flash.now[:alert] = "Invalid login try again"
       render :new
     end
   end

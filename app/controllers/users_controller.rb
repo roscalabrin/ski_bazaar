@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to skis_path
     else
-      flash[:alert] = "Invalid login"
+      flash[:alert] = "The username you selected is already in use. Please choose another username."
       render :new
     end
   end

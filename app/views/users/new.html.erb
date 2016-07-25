@@ -1,5 +1,11 @@
 <h1>Create New Account</h1>
 
+<div class="container col-sm-12">
+  <% if flash[:alert] %>
+    <p><%= flash[:alert] %></p>
+  <% end %>
+</div>
+
 <%= form_for(@user) do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username %>
