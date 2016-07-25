@@ -1,16 +1,13 @@
 class Admin::SkisController < Admin::BaseController
-  before_filter :admin?
+  before_action :admin?
 
   before_action :set_ski, only: [:show, :edit, :update, :destroy]
 
   def index
-    @skis = Ski.all
     redirect_to skis_path
   end
 
   def show
-    @ski_category = Category.find(@ski.category_id).name
-    @ski_gender  = Gender.find(@ski.gender_id).name
     redirect_to @ski
   end
 
