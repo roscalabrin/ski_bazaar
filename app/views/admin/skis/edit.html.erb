@@ -1,0 +1,29 @@
+<%= render partial: "shared/nav" %>
+<div class="col-sm-10 container">
+  <h1>Edit</h1>
+
+  <%= form_for(@ski, url: admin_ski_path(@ski)) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder: "#{@ski.name}" %>
+    </br>
+    <%= f.label :brand %>
+    <%= f.text_field :brand, placeholder: "#{@ski.brand}" %>
+    </br>
+    <%= f.label :width %>
+    <%= f.text_field :width, placeholder: "#{@ski.width}" %>
+    </br>
+    <%= f.label :length %>
+    <%= f.text_field :length, placeholder: "#{@ski.length}" %>
+    </br>
+    <%= f.label :image %>
+    <%= f.text_field :image, placeholder: "#{@ski.image}" %>
+    </br>
+    <%= f.label :category_id %>
+    <%= collection_select( :ski, :category_id, Category.all, :id, :name, {:prompt => 'Select category'}, {:multiple => false } ) %>
+    </br>
+    <%= f.label :gender_id %>
+    <%= collection_select( :ski, :gender_id, Gender.all, :id, :name, {:prompt => 'Select gender'}, {:multiple => false } ) %>
+    </br>
+    <%= f.submit %>
+  <% end %>
+</div>

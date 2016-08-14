@@ -1,10 +1,29 @@
-<h2>Ski Bazaar</h2>
-<h4>The marketplace for wintersports gear</h4>
+<%= render partial: "shared/nav" %>
 
-<% @skis.each do |ski| %>
-  <%= link_to "#{ski.brand}: #{ski.name}", ski_path(ski) %>
-</br>
-<% end %>
-</br>
-</br>
-<%= link_to "New Ski", new_ski_path %>
+<div class="col-sm-10 container">
+  <h2>Ski Bazaar</h2>
+  <h4>The marketplace for wintersports gear</h4>
+
+  <% if admin? %>
+    <%= link_to 'Add Ski', new_admin_ski_path %>
+  <% end %>
+
+
+  <ul id="ski-list">
+  <% @skis.each do |ski| %>
+    <li><%= link_to "#{ski.brand}: #{ski.name}", ski_path(ski) %>
+
+    <% if admin? %>
+      </br>
+      <%= link_to "Edit", edit_admin_ski_path(ski) %> |
+      <%= button_to "Delete", admin_ski_path(ski), :method=>:delete %>
+    <% else %>
+      | <%= link_to "Add Listing", new_seller_ski_listing_path(ski) %>
+
+    <% end %></li>
+  </br>
+  <% end %>
+  </ul>
+
+
+</div>

@@ -1,18 +1,35 @@
 Rails.application.routes.draw do
 
-  root to: 'skis#index'
+  root to: 'sessions#new'
+
+  resources :skis, only: [:index, :show]
+
+  resources :listings, only: [:index, :show]
 
   resources :users, only: [:new, :create, :show]
 
-  resources :skis
-  
-  scope :admin, module: :admin, as: :admin do
+  namespace :admin do
     resources :skis
+    # categories and gender?
   end
 
-  get '/login', to:'sessions#new'
-  post '/login', to:'sessions#create'
-  delete '/logout', to:'sessions#destroy'
+  namespace :seller do
+    resources :skis, only: [:index] do
+      resources :listings
+    end
+  end
+
+  namespace :seller do
+    resources :listings, only: [:index, :show]
+  end
+
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  # get '/auth/:provider/callback', to: 'sessions#create'
+  get 'logout', to: 'sessions#destroy'
+  delete 'logout', to: 'sessions#destroy'
+
+  # get '*path' => redirect('/')
 
 end
   # The priority is based upon order of creation: first created -> highest priority.

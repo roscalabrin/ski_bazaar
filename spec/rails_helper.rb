@@ -6,13 +6,64 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 
-
 def login_user!
-  user = User.create(username: "Roberta", password: "password")
+  user = User.create(username: "Matt", password: "password1")
   visit login_path
-  fill_in "Username", with: user.username
-  fill_in "Password", with: "password"
+
+  fill_in "session[username]", with: user.username
+  fill_in "session[password]", with: "password1"
   click_on "Login"
+end
+
+def login_admin!
+  user = User.create(username: "Roberta", password: "password", admin: true)
+
+  visit login_path
+  fill_in "session[username]", with: user.username
+  fill_in "session[password]", with: "password"
+  click_on "Login"
+end
+
+def load_categories_and_gender
+  Gender.create!(name: "female")
+  Gender.create!(name: "male")
+  Category.create!(name: "all mountain")
+  Category.create!(name: "powder")
+  Category.create!(name: "carving")
+  Category.create!(name: "backcountry")
+end
+
+def add_ski
+  ski = Ski.create!(
+    name: "corvus",
+    brand: "black crows",
+    width: 109,
+    length: 175,
+    category_id: 1,
+    gender_id: 1,
+    image: "https://commercecdn.com/1044735434531274893/46c38786-c2ca-4b24-9008-6fe54153df0a.jpeg"
+  )
+end
+
+RSpec.configure do |config|
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
+  end
+
+  Shoulda::Matchers.configure do |config|
+    config.integrate do |with|
+      with.test_framework :rspec
+      with.library :rails
+    end
+  end
 end
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

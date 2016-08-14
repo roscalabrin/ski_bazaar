@@ -1,0 +1,17 @@
+<%= render partial: "shared/nav" %>
+
+
+<div class="col-sm-10">
+  <h1>Sell Your <%= @ski.name %></h1>
+  <p class="flash-alert"><%= flash[:alert] %></p>
+
+  <%= form_for(:seller, url: seller_ski_listings_path(@ski, @listing)) do |f| %>
+    <%= f.label :price %>
+    <%= f.text_field :price %></br>
+    <%= f.label :image %>
+    <%= f.text_field :image %>
+  </br>
+  </br>
+    <%= f.submit "Create Listing" %>
+  <% end %>
+</div>

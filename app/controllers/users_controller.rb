@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def new
     @user = User.new
   end
@@ -8,10 +7,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to @user
+      redirect_to skis_path
     else
-      # flash[:alert] = "Invalid login"
-      #re-render new view if validations don't pass
+      flash[:alert] = "The username you selected is already in use. Please choose another username."
+      render :new
     end
   end
 

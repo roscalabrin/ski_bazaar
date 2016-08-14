@@ -1,0 +1,13 @@
+<%= render partial: "shared/nav" %>
+
+<div class="col-sm-10 container">
+  <h2>Ski Bazaar - My Listings</h2>
+  <h4>The marketplace for wintersports gear</h4>
+
+  <ul id="listing-list">
+    <% @listing.each do |listing| %>
+    <li><%= link_to "#{Ski.find(listing.ski_id).brand}: #{Ski.find(listing.ski_id).name} -> $#{listing.price}", seller_ski_listing_path(listing.ski_id, listing) %></li>
+    <% end %>
+  </ul>
+
+</div>

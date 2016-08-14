@@ -1,0 +1,24 @@
+<%= form_for(@ski, url: admin_skis_path(@ski)) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  </br>
+  <%= f.label :brand %>
+  <%= f.text_field :brand %>
+  </br>
+  <%= f.label :width %>
+  <%= f.text_field :width %>
+  </br>
+  <%= f.label :length %>
+  <%= f.text_field :length %>
+  </br>
+  <%= f.label :category_id %>
+  <%= collection_select( :ski, :category_id, categories, :id, :name, {:prompt => 'Select category'}, {:multiple => false } ) %>
+  </br>
+  <%= f.label :gender_id %>
+  <%= collection_select( :ski, :gender_id, gender, :id, :name, {:prompt => 'Select gender'}, {:multiple => false } ) %>
+  </br>
+  <%= f.label :image %>
+  <%= f.text_field :image %>
+
+  <%= f.submit "Create Ski" %>
+<% end %>

@@ -1,9 +1,20 @@
+<%= render partial: "shared/nav" %>
+
+<div class="col-sm-offset-1 col-sm-10">
 <h3><%= @ski.name %></h3>
 <h4><%= @ski.brand %></h4>
+<hr>
 
-<p>Width: <%= @ski.width %></p>
-<p>Length: <%= @ski.length %></p>
-</br>
-<%= link_to "Edit", edit_ski_path(@ski) %>
-</br>
-<%= link_to "Delete", ski_path(@ski), method: :delete %>
+<div class="row">
+  <div class="container col-sm-offset-.5 col-sm-2 ">
+    <img class="media-object" src="<%= @ski.image %>" alt="...">
+  </div>
+  <div class="col-sm-6 container">
+    <ul class="ski-specs">
+      <li><strong><%= @ski_category %></strong> |
+      <strong><%= @ski_gender %></strong></li>
+      <li><strong>Width</strong>: <%= @ski.width %></li>
+      <li><strong>Length</strong>: <%= @ski.length %></li>
+    </ul>
+  </div>
+</div>

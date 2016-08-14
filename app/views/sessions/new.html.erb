@@ -1,10 +1,21 @@
-<h2>Login</h2>
+<nav id="navbar-login-home" class="navbar navbar-default navbar-fixed-top">
+  <div class="container col-sm-offset-9 col-sm-3">
+    <%= link_to "Create An Account", new_user_path,  class: "btn-create-account" %>
+  </div>
+</nav>
 
-<%= form_for(:session, url: login_path) do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %></br>
-  <%= f.label :password %>
-  <%= f.text_field :password %>
+<body class='login-page'>
 
-  <%= f.submit "Login"%>
-<% end %>
+<div class="row container col-sm-12">
+  <h1 id="home-title">Welcome To Ski Bazaar</h1>
+</div>
+
+<div class="col-md-12">
+  <%= render partial: "shared/credentials_form" %>
+</div>
+
+<div class="col-md-12">
+  <!-- <%#= link_to "Sign in with Twitter", "/auth/twitter" %> -->
+</div>
+
+</body>
